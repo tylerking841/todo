@@ -1,11 +1,13 @@
 import React from "react";
 import Todo from "./Todo";
-//loops over array of items and prints them out
-export default function List({ todos }) {
+/*
+Stores array of todo objects
+*/
+export default function List({ todos, toggleTodo  }) {
   return (
     todos.map(todo => {
     //for every index in items return a todo with a unique key
-    return <Todo key={todo.id} todo={todo} />;
+    return <Todo key={todo.id} toggleTodo={toggleTodo} todo={todo} />;
   })
   )
 }

@@ -1,10 +1,20 @@
 import React from "react";
-//returns values passed from todo
-export default function Todo({ todo }) {
+/*
+When the checkbox is changed handleCheck is called
+handleCheck runs what ever is passed through toggleTodo and passes the todo objects id as an argument
+*/
+export default function Todo({ todo, toggleTodo }) {
+  //assigns id to toggle
+  function handleCheck() {
+    toggleTodo(todo.id);
+  }
+
   return (
     <div>
-      <input type="checkbox" checked={todo.checked} />
-      {todo.name}
+      <label>
+        <input type="checkbox" check={todo.complete} onChange={handleCheck} />
+        {todo.name}
+      </label>
     </div>
   );
 }
